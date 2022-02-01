@@ -1,0 +1,15 @@
+:root {
+	--navbar-h: 3rem;
+}
+
+main {
+  margin-top: 1rem;
+}
+
+.border {
+	border: 1px solid #eee;
+}
+
+.border.round {
+	border-radius: 5px;
+}
