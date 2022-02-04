@@ -1,5 +1,5 @@
 <script lang="ts">
-	import List from './List.svelte';
+	import Column from './Column.svelte';
 	const lists = [
 		{
 			id: 1,
@@ -47,7 +47,7 @@
 
 <section class="board">
 	{#each lists as list (list.id)}
-		<List {list} />
+		<Column {list} />
 	{/each}
 </section>
 
