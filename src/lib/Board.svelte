@@ -45,14 +45,14 @@
 	];
 </script>
 
-<section class="task-list-container">
+<section class="board">
 	{#each lists as list (list.id)}
 		<List {list} />
 	{/each}
 </section>
 
 <style>
-	.task-list-container {
+	.board {
 		display: flex;
 		flex-direction: row;
 		gap: 0.5rem;

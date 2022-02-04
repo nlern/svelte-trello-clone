@@ -1,5 +1,5 @@
 <script lang="ts">
-  import ListContainer from '$lib/ListContainer.svelte';
+  import Board from '$lib/Board.svelte';
 </script>
 
-<ListContainer />
+<Board />
