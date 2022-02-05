@@ -1,7 +1,6 @@
 lockfileVersion: 5.3
 
 specifiers:
-  '@neodrag/svelte': ^1.0.2
   '@sveltejs/adapter-auto': next
   '@sveltejs/kit': next
   '@typescript-eslint/eslint-plugin': ^5.10.1
@@ -13,16 +12,14 @@ specifiers:
   prettier-plugin-svelte: ^2.4.0
   svelte: ^3.44.0
   svelte-check: ^2.2.6
+  svelte-dnd-action: ^0.9.14
   svelte-preprocess: ^4.9.4
   tslib: ^2.3.1
   typescript: ^4.4.3
 
-dependencies:
-  '@neodrag/svelte': 1.0.2
-
 devDependencies:
   '@sveltejs/adapter-auto': 1.0.0-next.17
-  '@sveltejs/kit': 1.0.0-next.247_svelte@3.46.3
+  '@sveltejs/kit': 1.0.0-next.260_svelte@3.46.3
   '@typescript-eslint/eslint-plugin': 5.10.1_bfd9cbbab4c643796c083962b876a1a4
   '@typescript-eslint/parser': 5.10.1_eslint@7.32.0+typescript@4.5.5
   eslint: 7.32.0
@@ -32,6 +29,7 @@ devDependencies:
   prettier-plugin-svelte: 2.6.0_prettier@2.5.1+svelte@3.46.3
   svelte: 3.46.3
   svelte-check: 2.3.0_svelte@3.46.3
+  svelte-dnd-action: 0.9.14
   svelte-preprocess: 4.10.2_svelte@3.46.3+typescript@4.5.5
   tslib: 2.3.1
   typescript: 4.5.5
@@ -94,10 +92,6 @@ packages:
     resolution: {integrity: sha512-trnsAYxU3xnS1gPHPyU961coFyLkh4gAD/0zQ5mymY4yOZ+CYvsPqUbOFSw0aDM4y0tV7tiFxL/1XfXPNC6IPg==}
     dev: true
 
-  /@neodrag/svelte/1.0.2:
-    resolution: {integrity: sha512-q3zi8uMsauZBPeGDTFEwQiF3Gs92pzVDczDoMGhVFRhATuQS/z0jAUnVu+vTiPvPs3osT97AA6U00OcdzwRVKQ==}
-    dev: false
-
   /@nodelib/fs.scandir/2.1.5:
     resolution: {integrity: sha512-vq24Bq3ym5HEQm2NKCr3yXDwjc7vTsEThRDnkp2DK9p1uqLR+DHurm/NOTo0KG7HYHU7eppKZj3MyqYuMBf62g==}
     engines: {node: '>= 8'}
@@ -155,8 +149,8 @@ packages:
       esbuild: 0.13.15
     dev: true
 
-  /@sveltejs/kit/1.0.0-next.247_svelte@3.46.3:
-    resolution: {integrity: sha512-8xoSxJ3+Zid4y53dXd9lTLp94heYV1qmCEN6K2sjkFNELy2VaQ0/AWj2z0HWMnUQ2/iojb63OQvdXC46NaV+sQ==}
+  /@sveltejs/kit/1.0.0-next.260_svelte@3.46.3:
+    resolution: {integrity: sha512-0EEkGD0BpZdgRm9UoOnldS8iDFFhT2ixN3oQ/9DblGKNo7cz/FEQmKoYYIOOVYI3XyurwccWORPEpTTA4l9Oew==}
     engines: {node: '>=14.13'}
     hasBin: true
     peerDependencies:
@@ -1539,6 +1533,10 @@ packages:
       - sass
       - stylus
       - sugarss
+    dev: true
+
+  /svelte-dnd-action/0.9.14:
+    resolution: {integrity: sha512-c3kRK0vb1jrEVgI731BHADiodcqLDZ18wvCDDVnO+gMfIgWC4MlNQsswCNEK3Cw01emYTabC7UtHbAN6AYEZgQ==}
     dev: true
 
   /svelte-hmr/0.14.9_svelte@3.46.3:
