@@ -1,36 +1,65 @@
 <script lang="ts">
-	import Card from './Card.svelte';
-	export let list: {
-		id: number;
-		title: string;
-		cards: { id: number; title: string; description: string }[];
-	};
+	import { flip } from 'svelte/animate';
+	import { dndzone } from 'svelte-dnd-action';
+
+	export let name;
+	export let items;
+	export let onDrop;
+
+	const flipDurationMs = 300;
+
+	function handleDndConsiderCards(e) {
+		items = e.detail.items;
+	}
+
+	function handleDndFinalizeCards(e) {
+		onDrop(e.detail.items);
+	}
 </script>
 
-<section class="list border round">
-	<header class="list-header">
-		<h2>{list.title}</h2>
+<section class="wrapper">
+	<header class="column-title">
+		<h2>{name}</h2>
 	</header>
-	<div class="list-items">
-		{#each list.cards as card (card.id)}
-			<Card {card} />
+	<div
+		class="column-content"
+		use:dndzone={{ items, flipDurationMs, zoneTabIndex: -1 }}
+		on:consider={handleDndConsiderCards}
+		on:finalize={handleDndFinalizeCards}
+	>
+		{#each items as card (card.id)}
+			<article class="card" animate:flip={{ duration: flipDurationMs }}>
+				{card.name}
+			</article>
 		{/each}
 	</div>
 </section>
 
 <style>
-	.list {
-		width: 272px;
+	.wrapper {
+		height: 100%;
+		width: 100%;
+		overflow-y: hidden;
 	}
-	.list-items {
-		padding: 0.5em;
+	.column-title {
+		height: 2.5em;
+		font-weight: bold;
 		display: flex;
-		flex-direction: column;
-		gap: 0.5rem;
+		justify-content: center;
+		align-items: center;
 	}
-
-	.list-header {
-		padding: 0 0.5rem;
-		border-bottom: 1px solid #eee;
+	.column-content {
+		height: calc(100% - 2.5em);
+		overflow-y: scroll;
+	}
+	.card {
+		height: 4em;
+		width: 100%;
+		margin: 0.4em 0;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		background-color: #dddddd;
+		border: 1px solid #333333;
 	}
 </style>
