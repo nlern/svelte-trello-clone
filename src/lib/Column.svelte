@@ -1,33 +1,45 @@
 <script lang="ts">
+	import { afterUpdate } from 'svelte';
 	import { flip } from 'svelte/animate';
 	import { dndzone } from 'svelte-dnd-action';
 
-	export let name;
-	export let items;
+	export let column;
 	export let onDrop;
+
+	let columnElement;
 
 	const flipDurationMs = 300;
 
+	afterUpdate(() => {
+		columnElement.scrollTop = column.scrollTop;
+	});
+
 	function handleDndConsiderCards(e) {
-		items = e.detail.items;
+		column.items = e.detail.items;
 	}
 
 	function handleDndFinalizeCards(e) {
 		onDrop(e.detail.items);
 	}
+
+	function updateScrollTop(e) {
+		column.scrollTop = e.target.scrollTop;
+	}
 </script>
 
 <section class="wrapper">
 	<header class="column-title">
-		<h2>{name}</h2>
+		<h2>{column.name}</h2>
 	</header>
 	<div
 		class="column-content"
-		use:dndzone={{ items, flipDurationMs, zoneTabIndex: -1 }}
+		bind:this={columnElement}
+		use:dndzone={{ items: column.items, flipDurationMs, zoneTabIndex: -1 }}
 		on:consider={handleDndConsiderCards}
 		on:finalize={handleDndFinalizeCards}
+		on:scroll={updateScrollTop}
 	>
-		{#each items as card (card.id)}
+		{#each column.items as card (card.id)}
 			<article class="card" animate:flip={{ duration: flipDurationMs }}>
 				{card.name}
 			</article>

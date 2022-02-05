@@ -9,7 +9,7 @@
 	const flipDurationMs = 300;
 
 	function handleDndConsiderColumns(e) {
-		columns = e.detail.items;
+		onFinalUpdate(e.detail.items);
 	}
 
 	function handleDndFinalizeColumns(e) {
@@ -24,13 +24,18 @@
 
 <section
 	class="board"
-	use:dndzone={{ items: columns, flipDurationMs, type: 'column' }}
+	use:dndzone={{
+		items: columns,
+		flipDurationMs,
+		type: 'column',
+		transformDraggedElement: (el, { scrollTop }) => (el.scrollTop = scrollTop)
+	}}
 	on:consider={handleDndConsiderColumns}
 	on:finalize={handleDndFinalizeColumns}
 >
-	{#each columns as { id, name, items }, idx (id)}
+	{#each columns as column, idx (column.id)}
 		<div class="column" animate:flip={{ duration: flipDurationMs }}>
-			<Column {name} {items} onDrop={(newItems) => handleItemFinalize(idx, newItems)} />
+			<Column {column} onDrop={(newItems) => handleItemFinalize(idx, newItems)} />
 		</div>
 	{/each}
 </section>
