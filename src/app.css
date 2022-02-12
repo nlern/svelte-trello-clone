@@ -27,3 +27,7 @@ main {
 .border.round {
 	border-radius: 5px;
 }
+
+#dnd-action-dragged-el > .card, #dnd-action-dragged-el > .column {
+	transform: rotate(-10deg);
+}
