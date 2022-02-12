@@ -9,6 +9,7 @@
 		border-bottom: 1px solid #eee;
 		padding-left: 1.5em;
 		padding-top: 0.5em;
+		background-color: rgba(255, 255, 255, 0.4);
 	}
 
 	.title {

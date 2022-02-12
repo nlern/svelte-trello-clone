@@ -48,7 +48,7 @@
 
 <style>
 	.board {
-		height: 90vh;
+		height: 85vh;
 		width: 100%;
 		padding: 0.5em;
 		display: flex;
@@ -64,7 +64,7 @@
 		height: 100%;
 		padding: 0.5em;
 		margin: 0.5em;
-		background-color: #fff;
+		background-color: rgba(255, 255, 255, 0.6);
 		border: 1px solid #333333;
 	}
 
