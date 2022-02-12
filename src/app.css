@@ -2,8 +2,22 @@
 	--navbar-h: 3rem;
 }
 
+* {
+	box-sizing: border-box;
+	margin: 0;
+}
+
+html, body {
+	height: 100%;
+}
+
+#svelte {
+	height: 100%;
+}
+
 main {
-  margin-top: 1rem;
+	height: calc(100% - var(--navbar-h) - 1rem);
+	padding: 1rem 0.5rem;
 }
 
 .border {
