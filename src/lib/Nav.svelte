@@ -1,5 +1,5 @@
 <nav>
-	<h1 class="title"> Trello Clone </h1>
+	<h1 class="title">Svelte Trello Clone</h1>
 </nav>
 
 <style>

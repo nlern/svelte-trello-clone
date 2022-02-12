@@ -44,4 +44,8 @@
 	}
 </script>
 
+<svelte:head>
+	<title>Svelte Trello Clone</title>
+</svelte:head>
+
 <Board columns={columnsData} onFinalUpdate={handleBoardUpdated} />
